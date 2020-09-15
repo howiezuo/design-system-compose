@@ -23,7 +23,7 @@ fun DlsTheme(
     }
 }
 
-object DlsToken {
+object DlsTheme {
     @Composable
     val colors: DlsColorPalette
         get() = DlsColorAmbient.current

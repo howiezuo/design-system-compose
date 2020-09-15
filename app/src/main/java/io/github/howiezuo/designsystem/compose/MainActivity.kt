@@ -14,7 +14,6 @@ import androidx.ui.material.Button
 import androidx.ui.material.Surface
 import androidx.ui.text.style.TextAlign
 import io.github.howiezuo.designsystem.compose.ui.DlsTheme
-import io.github.howiezuo.designsystem.compose.ui.DlsToken
 import io.github.howiezuo.designsystem.compose.ui.dlsDarkColorPalette
 import io.github.howiezuo.designsystem.compose.ui.dlsLightColorPalette
 
@@ -30,7 +29,7 @@ class MainActivity : AppCompatActivity() {
             ) {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = DlsToken.colors.background
+                    color = DlsTheme.colors.background
                 ) {
 
                     Column(
@@ -40,12 +39,12 @@ class MainActivity : AppCompatActivity() {
 
                         Text(
                             text = if (isDarkState.value) "Is Dark" else "Is Light",
-                            color = DlsToken.colors.text,
+                            color = DlsTheme.colors.text,
                             textAlign = TextAlign.Center,
-                            style = DlsToken.typography.paragraph1
+                            style = DlsTheme.typography.paragraph1
                         )
 
-                        Spacer(modifier = Modifier.preferredHeight(DlsToken.sizes.medium))
+                        Spacer(modifier = Modifier.preferredHeight(DlsTheme.sizes.medium))
 
                         CustomButton(
                             text = "Button",
@@ -67,18 +66,18 @@ fun CustomButton(
 ) {
     Button(
         onClick = onClick,
-        backgroundColor = DlsToken.colors.primary,
+        backgroundColor = DlsTheme.colors.primary,
         padding = InnerPadding(
-            start = DlsToken.sizes.small,
-            top = DlsToken.sizes.smaller,
-            end = DlsToken.sizes.small,
-            bottom = DlsToken.sizes.smaller
+            start = DlsTheme.sizes.small,
+            top = DlsTheme.sizes.smaller,
+            end = DlsTheme.sizes.small,
+            bottom = DlsTheme.sizes.smaller
         )
     ) {
         Text(
             text = text,
-            color = DlsToken.colors.textReverse,
-            style = DlsToken.typography.button
+            color = DlsTheme.colors.textReverse,
+            style = DlsTheme.typography.button
         )
     }
 }
