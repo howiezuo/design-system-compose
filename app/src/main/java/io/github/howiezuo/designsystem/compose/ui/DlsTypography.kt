@@ -1,6 +1,5 @@
 package io.github.howiezuo.designsystem.compose.ui
 
-import androidx.compose.staticAmbientOf
 import androidx.ui.material.Typography
 import androidx.ui.text.TextStyle
 import androidx.ui.text.font.FontWeight
@@ -82,5 +81,3 @@ data class DlsTypography internal constructor(
         body1 = paragraph1
     )
 )
-
-internal val DlsTypographyAmbient = staticAmbientOf { DlsTypography() }

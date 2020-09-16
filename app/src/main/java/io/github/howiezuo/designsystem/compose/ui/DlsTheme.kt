@@ -2,6 +2,7 @@ package io.github.howiezuo.designsystem.compose.ui
 
 import androidx.compose.Composable
 import androidx.compose.Providers
+import androidx.compose.staticAmbientOf
 import androidx.ui.material.MaterialTheme
 
 @Composable
@@ -34,5 +35,8 @@ object DlsTheme {
 
     @Composable
     val sizes: DlsSize
-        get() = DlsSizeAmbient.current
+        get() = DlsSize()
 }
+
+internal val DlsColorAmbient = staticAmbientOf { dlsLightColorPalette() }
+internal val DlsTypographyAmbient = staticAmbientOf { DlsTypography() }

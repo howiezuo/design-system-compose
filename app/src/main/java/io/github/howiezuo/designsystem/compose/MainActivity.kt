@@ -12,7 +12,6 @@ import androidx.ui.layout.*
 import androidx.ui.layout.RowScope.gravity
 import androidx.ui.material.Button
 import androidx.ui.material.Surface
-import androidx.ui.text.style.TextAlign
 import io.github.howiezuo.designsystem.compose.ui.DlsTheme
 import io.github.howiezuo.designsystem.compose.ui.dlsDarkColorPalette
 import io.github.howiezuo.designsystem.compose.ui.dlsLightColorPalette
@@ -34,13 +33,13 @@ class MainActivity : AppCompatActivity() {
 
                     Column(
                         modifier = Modifier.gravity(Alignment.CenterVertically)
-                            .wrapContentSize()
+                            .wrapContentSize(),
+                        horizontalGravity = Alignment.CenterHorizontally
                     ) {
 
                         Text(
                             text = if (isDarkState.value) "Is Dark" else "Is Light",
                             color = DlsTheme.colors.text,
-                            textAlign = TextAlign.Center,
                             style = DlsTheme.typography.paragraph1
                         )
 
@@ -68,10 +67,10 @@ fun CustomButton(
         onClick = onClick,
         backgroundColor = DlsTheme.colors.primary,
         padding = InnerPadding(
-            start = DlsTheme.sizes.small,
-            top = DlsTheme.sizes.smaller,
-            end = DlsTheme.sizes.small,
-            bottom = DlsTheme.sizes.smaller
+            start = DlsTheme.sizes.large,
+            top = DlsTheme.sizes.medium,
+            end = DlsTheme.sizes.large,
+            bottom = DlsTheme.sizes.medium
         )
     ) {
         Text(

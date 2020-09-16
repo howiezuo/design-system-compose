@@ -1,6 +1,5 @@
 package io.github.howiezuo.designsystem.compose.ui
 
-import androidx.compose.staticAmbientOf
 import androidx.ui.graphics.Color
 import androidx.ui.material.ColorPalette
 import androidx.ui.material.darkColorPalette
@@ -11,6 +10,7 @@ object DlsColors {
     val background = Color(0xFFFFFFFF)
     val backgroundReverse = Color(0xFF192038)
     val basic = Color(0xFF8F9BB3)
+    val disable = basic.copy(alpha = 0.24f)
     val text = Color(0xFF192038)
     val textReverse = Color(0xFFFFFFFF)
     val success = Color(0xFF00E096)
@@ -23,6 +23,7 @@ interface DlsColorPalette {
     val primary: Color
     val background: Color
     val basic: Color
+    val disable: Color
     val text: Color
     val textReverse: Color
     val success: Color
@@ -37,6 +38,7 @@ fun dlsLightColorPalette(): DlsColorPalette = object : DlsColorPalette {
     override val primary: Color = DlsColors.primary
     override val background: Color = DlsColors.background
     override val basic: Color = DlsColors.basic
+    override val disable: Color = DlsColors.disable
     override val text: Color = DlsColors.text
     override val textReverse: Color = DlsColors.textReverse
     override val success: Color = DlsColors.success
@@ -55,6 +57,7 @@ fun dlsDarkColorPalette(): DlsColorPalette = object : DlsColorPalette {
     override val primary: Color = DlsColors.primary
     override val background: Color = DlsColors.backgroundReverse
     override val basic: Color = DlsColors.basic
+    override val disable: Color = DlsColors.disable
     override val text: Color = DlsColors.textReverse
     override val textReverse: Color = DlsColors.text
     override val success: Color = DlsColors.success
@@ -68,5 +71,3 @@ fun dlsDarkColorPalette(): DlsColorPalette = object : DlsColorPalette {
         onSurface = DlsColors.textReverse
     )
 }
-
-internal val DlsColorAmbient = staticAmbientOf { dlsLightColorPalette() }
