@@ -1,17 +1,22 @@
 package io.github.howiezuo.designsystem.compose
 
 import android.os.Bundle
+import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.Composable
-import androidx.compose.mutableStateOf
-import androidx.ui.core.Alignment
-import androidx.ui.core.Modifier
-import androidx.ui.core.setContent
-import androidx.ui.foundation.Text
-import androidx.ui.layout.*
-import androidx.ui.layout.RowScope.gravity
-import androidx.ui.material.Button
-import androidx.ui.material.Surface
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.material.Button
+import androidx.compose.material.ButtonDefaults
+import androidx.compose.material.Surface
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import io.github.howiezuo.designsystem.compose.ui.DlsTheme
 import io.github.howiezuo.designsystem.compose.ui.dlsDarkColorPalette
 import io.github.howiezuo.designsystem.compose.ui.dlsLightColorPalette
@@ -30,11 +35,9 @@ class MainActivity : AppCompatActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = DlsTheme.colors.background
                 ) {
-
                     Column(
-                        modifier = Modifier.gravity(Alignment.CenterVertically)
-                            .wrapContentSize(),
-                        horizontalGravity = Alignment.CenterHorizontally
+                        verticalArrangement = Arrangement.Center,
+                        horizontalAlignment = Alignment.CenterHorizontally
                     ) {
 
                         Text(
@@ -43,7 +46,7 @@ class MainActivity : AppCompatActivity() {
                             style = DlsTheme.typography.paragraph1
                         )
 
-                        Spacer(modifier = Modifier.preferredHeight(DlsTheme.sizes.medium))
+                        Spacer(modifier = Modifier.height(DlsTheme.sizes.medium))
 
                         CustomButton(
                             text = "Button",
@@ -65,8 +68,11 @@ fun CustomButton(
 ) {
     Button(
         onClick = onClick,
-        backgroundColor = DlsTheme.colors.primary,
-        padding = InnerPadding(
+        colors = ButtonDefaults.buttonColors(
+            backgroundColor = DlsTheme.colors.primary,
+            contentColor = DlsTheme.colors.textReverse
+        ),
+        contentPadding = PaddingValues(
             start = DlsTheme.sizes.large,
             top = DlsTheme.sizes.medium,
             end = DlsTheme.sizes.large,
@@ -75,7 +81,6 @@ fun CustomButton(
     ) {
         Text(
             text = text,
-            color = DlsTheme.colors.textReverse,
             style = DlsTheme.typography.button
         )
     }

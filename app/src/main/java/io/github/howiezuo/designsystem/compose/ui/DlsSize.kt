@@ -1,8 +1,10 @@
 package io.github.howiezuo.designsystem.compose.ui
 
-import androidx.ui.unit.Dp
-import androidx.ui.unit.dp
+import androidx.compose.runtime.Immutable
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 
+@Immutable
 data class DlsSize internal constructor(
     val smaller: Dp = 4.dp,
     val small: Dp = 8.dp,

@@ -1,10 +1,12 @@
 package io.github.howiezuo.designsystem.compose.ui
 
-import androidx.ui.material.Typography
-import androidx.ui.text.TextStyle
-import androidx.ui.text.font.FontWeight
-import androidx.ui.unit.sp
+import androidx.compose.material.Typography
+import androidx.compose.runtime.Immutable
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.sp
 
+@Immutable
 data class DlsTypography internal constructor(
     val headline1: TextStyle = TextStyle(
         fontSize = 36.sp,

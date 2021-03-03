@@ -1,9 +1,10 @@
 package io.github.howiezuo.designsystem.compose.ui
 
-import androidx.compose.Composable
-import androidx.compose.Providers
-import androidx.compose.staticAmbientOf
-import androidx.ui.material.MaterialTheme
+import androidx.compose.material.MaterialTheme
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.ReadOnlyComposable
+import androidx.compose.runtime.staticCompositionLocalOf
 
 @Composable
 fun DlsTheme(
@@ -11,9 +12,9 @@ fun DlsTheme(
     typography: DlsTypography = DlsTypography(),
     children: @Composable() () -> Unit
 ) {
-    Providers(
-        DlsColorAmbient provides colors,
-        DlsTypographyAmbient provides typography,
+    CompositionLocalProvider(
+        LocalDlsColors provides colors,
+        LocalDlsTypography provides typography,
     ) {
         MaterialTheme(
             colors = colors.materialColors,
@@ -25,18 +26,21 @@ fun DlsTheme(
 }
 
 object DlsTheme {
-    @Composable
     val colors: DlsColorPalette
-        get() = DlsColorAmbient.current
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalDlsColors.current
 
-    @Composable
     val typography: DlsTypography
-        get() = DlsTypographyAmbient.current
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalDlsTypography.current
 
-    @Composable
     val sizes: DlsSize
+        @Composable
+        @ReadOnlyComposable
         get() = DlsSize()
 }
 
-internal val DlsColorAmbient = staticAmbientOf { dlsLightColorPalette() }
-internal val DlsTypographyAmbient = staticAmbientOf { DlsTypography() }
+internal val LocalDlsColors = staticCompositionLocalOf { dlsLightColorPalette() }
+internal val LocalDlsTypography = staticCompositionLocalOf { DlsTypography() }

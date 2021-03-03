@@ -1,9 +1,9 @@
 package io.github.howiezuo.designsystem.compose.ui
 
-import androidx.ui.graphics.Color
-import androidx.ui.material.ColorPalette
-import androidx.ui.material.darkColorPalette
-import androidx.ui.material.lightColorPalette
+import androidx.compose.material.Colors
+import androidx.compose.material.darkColors
+import androidx.compose.material.lightColors
+import androidx.compose.ui.graphics.Color
 
 object DlsColors {
     val primary = Color(0xFF3366FF)
@@ -31,7 +31,7 @@ interface DlsColorPalette {
     val warning: Color
     val error: Color
 
-    val materialColors: ColorPalette
+    val materialColors: Colors
 }
 
 fun dlsLightColorPalette(): DlsColorPalette = object : DlsColorPalette {
@@ -46,7 +46,7 @@ fun dlsLightColorPalette(): DlsColorPalette = object : DlsColorPalette {
     override val warning: Color = DlsColors.warning
     override val error: Color = DlsColors.error
 
-    override val materialColors: ColorPalette = lightColorPalette(
+    override val materialColors: Colors = lightColors(
         primary = DlsColors.primary,
         surface = DlsColors.backgroundReverse,
         onSurface = DlsColors.textReverse
@@ -65,7 +65,7 @@ fun dlsDarkColorPalette(): DlsColorPalette = object : DlsColorPalette {
     override val warning: Color = DlsColors.warning
     override val error: Color = DlsColors.error
 
-    override val materialColors: ColorPalette = darkColorPalette(
+    override val materialColors: Colors = darkColors(
         primary = DlsColors.primary,
         surface = DlsColors.background,
         onSurface = DlsColors.textReverse
