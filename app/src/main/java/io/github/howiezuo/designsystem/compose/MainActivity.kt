@@ -3,6 +3,7 @@ package io.github.howiezuo.designsystem.compose
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -11,7 +12,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -31,30 +31,28 @@ class MainActivity : AppCompatActivity() {
             DlsTheme(
                 colors = if (isDarkState.value) dlsDarkColorPalette() else dlsLightColorPalette()
             ) {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = DlsTheme.colors.background
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(DlsTheme.colors.background),
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    Column(
-                        verticalArrangement = Arrangement.Center,
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
 
-                        Text(
-                            text = if (isDarkState.value) "Is Dark" else "Is Light",
-                            color = DlsTheme.colors.text,
-                            style = DlsTheme.typography.paragraph1
-                        )
+                    Text(
+                        text = if (isDarkState.value) "Is Dark" else "Is Light",
+                        color = DlsTheme.colors.text,
+                        style = DlsTheme.typography.paragraph1
+                    )
 
-                        Spacer(modifier = Modifier.height(DlsTheme.sizes.medium))
+                    Spacer(modifier = Modifier.height(DlsTheme.sizes.medium))
 
-                        CustomButton(
-                            text = "Button",
-                            onClick = {
-                                isDarkState.value = !isDarkState.value
-                            }
-                        )
-                    }
+                    CustomButton(
+                        text = "Button",
+                        onClick = {
+                            isDarkState.value = !isDarkState.value
+                        }
+                    )
                 }
             }
         }
