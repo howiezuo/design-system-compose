@@ -38,34 +38,19 @@ data class DlsTypography internal constructor(
         fontWeight = FontWeight.Bold,
         lineHeight = 24.sp
     ),
-    val subtitle1: TextStyle = TextStyle(
+    val subtitle: TextStyle = TextStyle(
         fontSize = 15.sp,
         fontWeight = FontWeight.Bold,
         lineHeight = 24.sp
     ),
-    val subtitle2: TextStyle = TextStyle(
-        fontSize = 13.sp,
-        fontWeight = FontWeight.Normal,
-        lineHeight = 24.sp
-    ),
-    val paragraph1: TextStyle = TextStyle(
+    val paragraph: TextStyle = TextStyle(
         fontSize = 15.sp,
         fontWeight = FontWeight.Normal,
         lineHeight = 20.sp
     ),
-    val paragraph2: TextStyle = TextStyle(
-        fontSize = 13.sp,
-        fontWeight = FontWeight.Normal,
-        lineHeight = 18.sp
-    ),
-    val caption1: TextStyle = TextStyle(
+    val caption: TextStyle = TextStyle(
         fontSize = 12.sp,
         fontWeight = FontWeight.Normal,
-        lineHeight = 16.sp
-    ),
-    val caption2: TextStyle = TextStyle(
-        fontSize = 12.sp,
-        fontWeight = FontWeight.Bold,
         lineHeight = 16.sp
     ),
     val label: TextStyle = TextStyle(
@@ -80,6 +65,6 @@ data class DlsTypography internal constructor(
     ),
 
     val materialTypography: Typography = Typography(
-        body1 = paragraph1
+        body1 = paragraph
     )
 )

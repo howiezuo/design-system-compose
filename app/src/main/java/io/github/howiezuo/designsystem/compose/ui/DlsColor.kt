@@ -48,8 +48,9 @@ fun dlsLightColorPalette(): DlsColorPalette = object : DlsColorPalette {
 
     override val materialColors: Colors = lightColors(
         primary = DlsColors.primary,
-        surface = DlsColors.backgroundReverse,
-        onSurface = DlsColors.textReverse
+        background = DlsColors.background,
+        surface = DlsColors.background,
+        onSurface = DlsColors.text
     )
 }
 
@@ -67,7 +68,8 @@ fun dlsDarkColorPalette(): DlsColorPalette = object : DlsColorPalette {
 
     override val materialColors: Colors = darkColors(
         primary = DlsColors.primary,
-        surface = DlsColors.background,
+        background = DlsColors.backgroundReverse,
+        surface = DlsColors.backgroundReverse,
         onSurface = DlsColors.textReverse
     )
 }
